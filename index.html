@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hedy Lamarr - Acesso Restrito</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0b1511, #203b31);
+    color: #f3ead8;
+    font-family: Georgia, serif;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    padding: 40px 25px;
+    text-align: center;
+    border: 2px solid #d7b878;
+    background: rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 55px;
+    color: #f3ead8;
+    letter-spacing: 4px;
+}
+
+.subtitulo {
+    color: #d7b878;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.linha {
+    width: 80px;
+    height: 2px;
+    background: #d7b878;
+    margin: 30px auto;
+}
+
+p {
+    line-height: 1.8;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 17px;
+    border: 1px solid #d7b878;
+    background: #f3ead8;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    background: #d7b878;
+    color: #14251f;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background: #ead4a5;
+}
+
+#erro {
+    color: #ff9999;
+}
+
+#mensagem {
+    display: none;
+}
+
+.pista {
+    border: 1px solid #d7b878;
+    padding: 25px;
+    margin-top: 25px;
+    font-size: 21px;
+}
+
+.destaque {
+    color: #d7b878;
+    font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="login">
+
+    <div class="subtitulo">
+        ARQUIVO HISTÓRICO • ACESSO RESTRITO
+    </div>
+
+    <h1>HEDY<br>LAMARR</h1>
+
+    <div class="subtitulo">
+        INVENTORA • ATRIZ • PIONEIRA
+    </div>
+
+    <div class="linha"></div>
+
+    <p>
+        Uma mente à frente de seu tempo.<br>
+        Digite a senha para acessar a próxima pista.
+    </p>
+
+    <form onsubmit="verificarSenha(event)">
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Digite a senha"
+            required
+        >
+
+        <button type="submit">
+            ACESSAR ARQUIVO
+        </button>
+
+        <p id="erro"></p>
+
+    </form>
+
+</div>
+
+
+<div class="container" id="mensagem">
+
+    <div class="subtitulo">
+        ARQUIVO DESBLOQUEADO
+    </div>
+
+    <h1>HEDY LAMARR</h1>
+
+    <div class="linha"></div>
+
+    <h2>A PRÓXIMA PISTA ESTÁ AQUI</h2>
+
+    <div class="pista">
+
+        O que parece estar separado pode fazer parte de uma única mensagem.
+
+        <br><br>
+
+        <span class="destaque">
+            Encontre as letras e decodifique a palavra.
+        </span>
+
+    </div>
+
+    <p>
+        Reúna as letras espalhadas pelo ambiente
+        e descubra a palavra formada.
+    </p>
+
+</div>
+
+
+<script>
+
+function verificarSenha(event) {
+
+    event.preventDefault();
+
+    let senha = document.getElementById("senha").value;
+
+    if (senha === "1942") {
+
+        document.getElementById("login").style.display = "none";
+
+        document.getElementById("mensagem").style.display = "block";
+
+    } else {
+
+        document.getElementById("erro").innerText =
+        "Senha incorreta! Tente novamente.";
+
+        document.getElementById("senha").value = "";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
